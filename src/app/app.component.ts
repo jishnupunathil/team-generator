@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'team-generator';
+  
+  newMemb:string='';
+  membList:string[]=[];
+
+  onInput(member:string){
+    this.newMemb=member;
+    console.log(this.newMemb);
+  }
+
+
+  addMember(){
+    this.membList.push(this.newMemb);
+    console.log(this.membList);
+    this.newMemb='';
+  }
+
 }
