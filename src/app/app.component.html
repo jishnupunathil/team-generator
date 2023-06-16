@@ -17,11 +17,21 @@
     </div>
     <div class="input-container">
       <input
+        #addTeamInput
         type="number"
         placeholder="# of teams"
+        (input)="onTeamInput(addTeamInput.value)"
+        [value]="numberOfTeams"
       />
-      <button>Generate</button>
+      <button (click)="generateTeams()">Generate</button>
     </div>
     <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+  </div>
+  <div class="teams-container" *ngIf="teams.length">
+    <app-team
+   *ngFor="let team of teams;let i = index" 
+    [team]="team"
+    [index]="i"
+    ></app-team>
   </div>
 </div>
