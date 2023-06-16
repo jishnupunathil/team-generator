@@ -27,6 +27,10 @@ export class AppComponent {
       this.errorMessage='Please enter a name';
       return;
     }
+    if(this.membList.includes(this.newMemb)){
+      this.errorMessage='Member already exists';
+      return;
+    }
 
     this.errorMessage=''
     this.membList.push(this.newMemb);
@@ -38,6 +42,11 @@ export class AppComponent {
     if(!this.numberOfTeams || this.numberOfTeams <= 0){
       this.errorMessage="invalid number of teams"
       return
+  }
+  if(this.numberOfTeams>this.membList.length){
+    this.errorMessage="members are less"
+    return
+  
   }
   this.errorMessage=''
   const allMembers=[...this.membList]
