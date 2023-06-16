@@ -9,16 +9,22 @@ export class AppComponent {
   
   newMemb:string='';
   membList:string[]=[];
+  errorMessage:string='';
 
   onInput(member:string){
     this.newMemb=member;
-    console.log(this.newMemb);
   }
 
 
   addMember(){
+
+    if(!this.newMemb){
+      this.errorMessage='Please enter a name';
+      return;
+    }
+
+    this.errorMessage=''
     this.membList.push(this.newMemb);
-    console.log(this.membList);
     this.newMemb='';
   }
 
